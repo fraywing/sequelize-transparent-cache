@@ -6,13 +6,13 @@ function dataToInstance (model, data) {
   if (!data) {
     return data
   }
-  let include = []
+  // let include = []
+  //
+  // if (model.associations) {
+  //   include = loadAssociations(model)
+  // }
 
-  if (model.associations) {
-    include = loadAssociations(model)
-  }
-
-  const instance = model.build(data, { isNewRecord: false, include })
+  const instance = model.build(data, { isNewRecord: false })
 
   if (data.updatedAt) {
     instance.setDataValue('updatedAt', data.updatedAt)

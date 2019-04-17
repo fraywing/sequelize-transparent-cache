@@ -1,7 +1,7 @@
 const buildClassMethods = require('./methods/class')
 const buildInstanceMethods = require('./methods/instance')
 
-module.exports = client => ({
+module.exports = (client, config) => ({
   withCache (modelClass) {
     modelClass.cache = function () {
       return buildClassMethods.auto(client, this)
